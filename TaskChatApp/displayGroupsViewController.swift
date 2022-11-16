@@ -37,14 +37,9 @@ class displayGroupsViewController: UIViewController {
         
     }
 }
-extension displayGroupsViewController:UITableViewDelegate,UITableViewDataSource{
+    extension displayGroupsViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         addresses.count
-    }
-        
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)as! grouptableViewCell
     }
        
                 
