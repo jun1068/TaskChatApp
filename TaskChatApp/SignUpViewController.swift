@@ -35,9 +35,11 @@ class SignUpViewController: UIViewController {
             .document(authResult.user.uid)
             .setData(addData)
             
-            let storyboard = UIStoryboard(named:"ChatListStoryboard")
+            let chatboard: UIStoryboard = UIStoryboard(name:"ChatListStoryboard",bundle: nil)
             
-            let vc = storyboard.instantiateViewControllerWithIdentifier("displayGroupsViewController")
+            let makeRoomViewController = chatboard.instantiateViewController(withIdentifier: "makeRoomViewController")
+            
+            self.present(makeRoomViewController, animated: true)
         }
     }
     @IBAction func SignUpButton(){

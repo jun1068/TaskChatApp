@@ -51,12 +51,12 @@ extension displayGroupsViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        cell.layer.cornerRadius = 12 //角丸
-        cell.layer.shadowOpacity = 0.25 //影の濃さ
-        cell.layer.shadowColor = UIColor.black.cgColor //影の色
-        cell.layer.shadowOffset = CGSize(width: 2, height: 3) //影の方向
+        cell.layer.cornerRadius = 12
+        cell.layer.shadowOpacity = 0.25
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 2, height: 3)
         cell.layer.masksToBounds = false
 
         return cell
     }
-}
+    }

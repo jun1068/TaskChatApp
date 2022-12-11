@@ -45,9 +45,11 @@ class LoginViewController: UIViewController {
             tabView.selectedIndex = 0
             self.present(tabView, animated: true, completion: nil)
             
-            //let storyboard = UIStoryboard(named:"ChatListStoryboard")
+            let chatboard = UIStoryboard(name:"ChatListStoryboard", bundle: nil)
             
-            //let vc = storyboard.instantiateViewControllerWithIdentifier("displayGroupsViewController")
+            let makeRoomViewController = chatboard.instantiateViewController(withIdentifier: "makeRoomViewController")
+            
+            self.present(makeRoomViewController, animated: true)
         }
         }
     }

@@ -14,10 +14,10 @@ class makeRoomViewController: UIViewController {
     @IBOutlet weak var roomNumberTextfield: UITextField!
     
     let db = Firebase.Firestore.firestore()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     @IBAction func tappedAddButton(_sender:Any){
@@ -32,17 +32,11 @@ class makeRoomViewController: UIViewController {
                     print("保存に失敗しました：\(error)")
                 }
             }
+        let chatlistboard = UIStoryboard(name: "chatlistboard", bundle: nil)
+        
+        let displayGroupscontroller = chatlistboard.instantiateViewController(withIdentifier: "displayGroupsViewController")
+        
+        self.present(displayGroupscontroller, animated: true)
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

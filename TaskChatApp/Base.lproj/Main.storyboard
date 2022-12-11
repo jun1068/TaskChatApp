@@ -81,6 +81,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="アカウント作成済みの方"/>
+                                <connections>
+                                    <segue destination="397-52-4PP" kind="show" id="8Do-SJ-6GI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -96,14 +99,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="fWb-fg-vX3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="944.92753623188412" y="79.6875"/>
+            <point key="canvasLocation" x="957" y="80"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="GSj-tc-jIa">
             <objects>
                 <viewController id="397-52-4PP" customClass="LoginViewController" customModule="TaskChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sHd-7V-Ib6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XOv-IW-KXq">
@@ -147,6 +150,7 @@
                         <viewLayoutGuide key="safeArea" id="xWe-CJ-egI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="5u9-O4-efi"/>
                     <connections>
                         <outlet property="EmailTextField" destination="XOv-IW-KXq" id="wYP-k4-LR3"/>
                         <outlet property="PassWordField" destination="DQU-8X-T9a" id="QER-jP-JKB"/>
