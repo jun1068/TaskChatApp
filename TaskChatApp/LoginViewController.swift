@@ -44,6 +44,10 @@ class LoginViewController: UIViewController {
             let tabView = storyboard.instantiateViewController(withIdentifier: "tab") as! UITabBarController
             tabView.selectedIndex = 0
             self.present(tabView, animated: true, completion: nil)
+            
+            //let storyboard = UIStoryboard(named:"ChatListStoryboard")
+            
+            //let vc = storyboard.instantiateViewControllerWithIdentifier("displayGroupsViewController")
         }
         }
     }

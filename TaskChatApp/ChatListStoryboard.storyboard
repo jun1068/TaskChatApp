@@ -43,8 +43,6 @@
                     <navigationItem key="navigationItem" title="Chat" id="nXk-V6-yO9"/>
                     <connections>
                         <outlet property="tableView" destination="gQj-e5-3YA" id="blK-XF-ALY"/>
-                        <outlet property="tableViewCell" destination="zHf-m7-ome" id="rEx-qZ-8tH"/>
-                        <outlet property="talbeViewCell" destination="zHf-m7-ome" id="9s2-Vt-Uap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

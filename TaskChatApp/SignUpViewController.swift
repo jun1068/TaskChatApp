@@ -34,6 +34,10 @@ class SignUpViewController: UIViewController {
         db.collection("users")
             .document(authResult.user.uid)
             .setData(addData)
+            
+            let storyboard = UIStoryboard(named:"ChatListStoryboard")
+            
+            let vc = storyboard.instantiateViewControllerWithIdentifier("displayGroupsViewController")
         }
     }
     @IBAction func SignUpButton(){
