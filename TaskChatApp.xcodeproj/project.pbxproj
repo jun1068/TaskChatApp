@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA412054294F2112007B4869 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA412052294F2112007B4869 /* GroupsTableViewCell.swift */; };
+		DA412055294F2112007B4869 /* GroupsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA412053294F2112007B4869 /* GroupsTableViewCell.xib */; };
 		DA87BA1A29208AF2006382B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87BA1929208AF2006382B9 /* AppDelegate.swift */; };
 		DA87BA1C29208AF2006382B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87BA1B29208AF2006382B9 /* SceneDelegate.swift */; };
 		DA87BA1E29208AF2006382B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87BA1D29208AF2006382B9 /* ViewController.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA412052294F2112007B4869 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
+		DA412053294F2112007B4869 /* GroupsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsTableViewCell.xib; sourceTree = "<group>"; };
 		DA87BA1629208AF2006382B9 /* TaskChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA87BA1929208AF2006382B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA87BA1B29208AF2006382B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 				DA87BA5E2920B578006382B9 /* ChatListStoryboard.storyboard */,
 				DA87BA602920B657006382B9 /* makeRoomViewController.swift */,
 				DA87BA622920BD34006382B9 /* displayGroupsViewController.swift */,
+				DA412052294F2112007B4869 /* GroupsTableViewCell.swift */,
+				DA412053294F2112007B4869 /* GroupsTableViewCell.xib */,
 			);
 			path = TaskChatApp;
 			sourceTree = "<group>";
@@ -270,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA87BA2629208AF3006382B9 /* LaunchScreen.storyboard in Resources */,
+				DA412055294F2112007B4869 /* GroupsTableViewCell.xib in Resources */,
 				DA87BA5F2920B578006382B9 /* ChatListStoryboard.storyboard in Resources */,
 				DA87BA5729208E77006382B9 /* GoogleService-Info.plist in Resources */,
 				DA87BA2329208AF3006382B9 /* Assets.xcassets in Resources */,
@@ -302,6 +309,7 @@
 				DA87BA1A29208AF2006382B9 /* AppDelegate.swift in Sources */,
 				DA87BA4A29208B75006382B9 /* SignUpViewController.swift in Sources */,
 				DA87BA632920BD34006382B9 /* displayGroupsViewController.swift in Sources */,
+				DA412054294F2112007B4869 /* GroupsTableViewCell.swift in Sources */,
 				DA87BA4C29208BBC006382B9 /* LoginViewController.swift in Sources */,
 				DA87BA5B2920AA26006382B9 /* ChatViewController.swift in Sources */,
 				DA87BA1C29208AF2006382B9 /* SceneDelegate.swift in Sources */,

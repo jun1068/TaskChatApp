@@ -29,6 +29,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="WtO-nh-llT"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="ck3-rb-l3p"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -43,6 +47,7 @@
                     <navigationItem key="navigationItem" title="Chat" id="nXk-V6-yO9"/>
                     <connections>
                         <outlet property="tableView" destination="gQj-e5-3YA" id="blK-XF-ALY"/>
+                        <outlet property="tableview" destination="gQj-e5-3YA" id="YuX-tz-gmW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
