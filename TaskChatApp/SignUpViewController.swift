@@ -22,26 +22,32 @@ class SignUpViewController: UIViewController {
     
     
     func createUser(emailText:String,passwordtext:String){
+        //MARK: createUser
         Auth.auth().createUser(withEmail:emailText,password: passwordtext){FIRAuthDateResult,Error in
             guard let authResult = FIRAuthDateResult else {
                 print("error,SignUp")
                 return
-        }
-        let addData = [
-            "userName": self.UserNameTextField.text!
-        ]
-        let db = Firestore.firestore()
-        db.collection("users")
-            .document(authResult.user.uid)
-            .setData(addData)
+            }
+            let addData = [
+                "userName": self.UserNameTextField.text!
+            ]
+            let db = Firestore.firestore()
+            db.collection("users")
+                .document(authResult.user.uid)
+                .setData(addData)
             
-            let chatboard: UIStoryboard = UIStoryboard(name:"ChatListStoryboard",bundle: nil)
-            
-            let makeRoomViewController = chatboard.instantiateViewController(withIdentifier: "makeRoomViewController")
-            
-            self.present(makeRoomViewController, animated: true)
-        }
+            self.transition()        }
+    
     }
+    func transition(){
+        let chatboard: UIStoryboard = UIStoryboard(name:"ChatListStoryboard",bundle: nil)
+        
+        let toDisplayGroups = chatboard.instantiateViewController(withIdentifier:"NavigationController")
+        
+        toDisplayGroups.modalPresentationStyle = .fullScreen
+        self.present(toDisplayGroups,animated: true)
+    }
+    
     @IBAction func SignUpButton(){
         createUser(emailText: EmailTextField.text!, passwordtext:PassWordTextField.text! )
         

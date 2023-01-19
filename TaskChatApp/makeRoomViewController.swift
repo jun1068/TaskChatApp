@@ -32,11 +32,7 @@ class makeRoomViewController: UIViewController {
                     print("保存に失敗しました：\(error)")
                 }
             }
-        let chatlistboard = UIStoryboard(name: "ChatListStoryboard", bundle: nil)
-        
-        let displayGroupscontroller = chatlistboard.instantiateViewController(withIdentifier: "displayGroupsViewController")
-        
-        self.present(displayGroupscontroller, animated: true)
+        self.navigationController?.popViewController(animated: true)
         
     }
 }

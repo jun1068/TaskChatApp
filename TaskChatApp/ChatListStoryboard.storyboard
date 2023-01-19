@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Chat-->
+        <!--グループ-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="displayGroupsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="displayGroupsViewController" customModule="TaskChatApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -44,10 +44,15 @@
                             <constraint firstItem="gQj-e5-3YA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yYb-xa-pOc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat" id="nXk-V6-yO9"/>
+                    <navigationItem key="navigationItem" title="グループ" id="NQc-6z-OLj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="eTg-DY-Nm3">
+                            <connections>
+                                <segue destination="Udb-eG-ZEy" kind="show" id="8Gl-bc-PuJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="gQj-e5-3YA" id="blK-XF-ALY"/>
-                        <outlet property="tableview" destination="gQj-e5-3YA" id="YuX-tz-gmW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -103,6 +108,7 @@
                         <viewLayoutGuide key="safeArea" id="i3O-wU-Cx5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mh6-cy-gdz"/>
                     <connections>
                         <outlet property="roomNameTextfield" destination="z8Z-bz-dN9" id="D9m-Qq-pB6"/>
                         <outlet property="roomNumberTextfield" destination="azi-gI-cka" id="wv5-EI-NSm"/>
@@ -115,7 +121,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ryS-Hu-Y86">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QkB-uR-5lg" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="QkB-uR-5lg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fOP-lV-dGo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		DA412054294F2112007B4869 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA412052294F2112007B4869 /* GroupsTableViewCell.swift */; };
 		DA412055294F2112007B4869 /* GroupsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA412053294F2112007B4869 /* GroupsTableViewCell.xib */; };
+		DA50913E2973D35200FB7A2B /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = DA50913D2973D35200FB7A2B /* MessageKit */; };
+		DA5091402973D48D00FB7A2B /* MessageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA50913F2973D48D00FB7A2B /* MessageStoryboard.storyboard */; };
+		DA5091422973D53C00FB7A2B /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5091412973D53C00FB7A2B /* MessageViewController.swift */; };
 		DA87BA1A29208AF2006382B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87BA1929208AF2006382B9 /* AppDelegate.swift */; };
 		DA87BA1C29208AF2006382B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87BA1B29208AF2006382B9 /* SceneDelegate.swift */; };
 		DA87BA1E29208AF2006382B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87BA1D29208AF2006382B9 /* ViewController.swift */; };
@@ -51,6 +54,8 @@
 /* Begin PBXFileReference section */
 		DA412052294F2112007B4869 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		DA412053294F2112007B4869 /* GroupsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupsTableViewCell.xib; sourceTree = "<group>"; };
+		DA50913F2973D48D00FB7A2B /* MessageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageStoryboard.storyboard; sourceTree = "<group>"; };
+		DA5091412973D53C00FB7A2B /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		DA87BA1629208AF2006382B9 /* TaskChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA87BA1929208AF2006382B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA87BA1B29208AF2006382B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +87,7 @@
 				DA87BA5529208E1C006382B9 /* FirebaseStorage in Frameworks */,
 				DA87BA5129208E1C006382B9 /* FirebaseAuth in Frameworks */,
 				DA87BA5329208E1C006382B9 /* FirebaseFirestore in Frameworks */,
+				DA50913E2973D35200FB7A2B /* MessageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +147,8 @@
 				DA87BA622920BD34006382B9 /* displayGroupsViewController.swift */,
 				DA412052294F2112007B4869 /* GroupsTableViewCell.swift */,
 				DA412053294F2112007B4869 /* GroupsTableViewCell.xib */,
+				DA50913F2973D48D00FB7A2B /* MessageStoryboard.storyboard */,
+				DA5091412973D53C00FB7A2B /* MessageViewController.swift */,
 			);
 			path = TaskChatApp;
 			sourceTree = "<group>";
@@ -183,6 +191,7 @@
 				DA87BA5029208E1C006382B9 /* FirebaseAuth */,
 				DA87BA5229208E1C006382B9 /* FirebaseFirestore */,
 				DA87BA5429208E1C006382B9 /* FirebaseStorage */,
+				DA50913D2973D35200FB7A2B /* MessageKit */,
 			);
 			productName = TaskChatApp;
 			productReference = DA87BA1629208AF2006382B9 /* TaskChatApp.app */;
@@ -258,6 +267,7 @@
 			mainGroup = DA87BA0D29208AF2006382B9;
 			packageReferences = (
 				DA87BA4D29208E1C006382B9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DA50913C2973D35200FB7A2B /* XCRemoteSwiftPackageReference "MessageKit" */,
 			);
 			productRefGroup = DA87BA1729208AF2006382B9 /* Products */;
 			projectDirPath = "";
@@ -275,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5091402973D48D00FB7A2B /* MessageStoryboard.storyboard in Resources */,
 				DA87BA2629208AF3006382B9 /* LaunchScreen.storyboard in Resources */,
 				DA412055294F2112007B4869 /* GroupsTableViewCell.xib in Resources */,
 				DA87BA5F2920B578006382B9 /* ChatListStoryboard.storyboard in Resources */,
@@ -309,6 +320,7 @@
 				DA87BA1A29208AF2006382B9 /* AppDelegate.swift in Sources */,
 				DA87BA4A29208B75006382B9 /* SignUpViewController.swift in Sources */,
 				DA87BA632920BD34006382B9 /* displayGroupsViewController.swift in Sources */,
+				DA5091422973D53C00FB7A2B /* MessageViewController.swift in Sources */,
 				DA412054294F2112007B4869 /* GroupsTableViewCell.swift in Sources */,
 				DA87BA4C29208BBC006382B9 /* LoginViewController.swift in Sources */,
 				DA87BA5B2920AA26006382B9 /* ChatViewController.swift in Sources */,
@@ -651,6 +663,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DA50913C2973D35200FB7A2B /* XCRemoteSwiftPackageReference "MessageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MessageKit/MessageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		DA87BA4D29208E1C006382B9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -662,6 +682,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DA50913D2973D35200FB7A2B /* MessageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA50913C2973D35200FB7A2B /* XCRemoteSwiftPackageReference "MessageKit" */;
+			productName = MessageKit;
+		};
 		DA87BA4E29208E1C006382B9 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DA87BA4D29208E1C006382B9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

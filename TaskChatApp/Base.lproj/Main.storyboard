@@ -82,7 +82,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="アカウント作成済みの方"/>
                                 <connections>
-                                    <segue destination="397-52-4PP" kind="show" id="8Do-SJ-6GI"/>
+                                    <segue destination="397-52-4PP" kind="show" id="Jlk-Mj-nqf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -153,7 +153,6 @@
                     <navigationItem key="navigationItem" id="5u9-O4-efi"/>
                     <connections>
                         <outlet property="EmailTextField" destination="XOv-IW-KXq" id="wYP-k4-LR3"/>
-                        <outlet property="PassWordField" destination="DQU-8X-T9a" id="QER-jP-JKB"/>
                         <outlet property="PassWordTextField" destination="DQU-8X-T9a" id="hpF-Rp-paE"/>
                     </connections>
                 </viewController>

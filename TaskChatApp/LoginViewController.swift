@@ -22,10 +22,10 @@ class LoginViewController: UIViewController {
     let auth = Auth.auth()
     
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     @IBAction func tappedLoginButton(_sender:Any){
@@ -37,20 +37,17 @@ class LoginViewController: UIViewController {
                 print("error:\(err)")
                 
             }
+            self.transition()
         }
         
-        func transition(){
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let tabView = storyboard.instantiateViewController(withIdentifier: "tab") as! UITabBarController
-            tabView.selectedIndex = 0
-            self.present(tabView, animated: true, completion: nil)
-            
-            let chatboard = UIStoryboard(name:"ChatListStoryboard", bundle: nil)
-            
-            let makeRoomViewController = chatboard.instantiateViewController(withIdentifier: "makeRoomViewController")
-            
-            self.present(makeRoomViewController, animated: true)
-        }
-        }
+        
     }
+    func transition(){
+        let chatboard = UIStoryboard(name:"ChatListStoryboard", bundle: nil)
+        
+        let toDisplayGroups = chatboard.instantiateViewController(withIdentifier: "NavigationController")
+        toDisplayGroups.modalPresentationStyle = .fullScreen
+        self.present(toDisplayGroups, animated: true)
+    }
+}
 
