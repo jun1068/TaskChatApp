@@ -16,7 +16,7 @@ final class MessageViewController: MessagesViewController {
         super.viewDidLoad()
         DispatchQueue.main.async {
             self.messageList = MessageEntity.mockMessages
-            self.title = self.messageList.filter { !$0.isMe}.first?.username
+            self.title = self.messageList.filter { !$0.isMe}.first?.userName
         }
         messagesCollectionView.backgroundColor = UIColor.secondarySystemBackground
         messagesCollectionView.messagesDataSource = self
@@ -29,9 +29,13 @@ final class MessageViewController: MessagesViewController {
 }
 
 extension MessageViewController: MessagesDataSource{
-    func currrentSender() -> SenderType {
+    var currentSender: SenderType {
         return MessageSenderType.me
     }
+    
+//    func currrentSender() -> SenderType {
+//
+//    }
     
     func otherSender() -> SenderType {
         return MessageSenderType.other
@@ -60,7 +64,7 @@ extension MessageViewController: MessagesDataSource{
     }
 }
 
-extension SampleViewController: MessagesDisplayDelegate {
+extension MessageViewController: MessagesDisplayDelegate {
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? UIColor.systemBlue : UIColor.systemBackground
     }
@@ -71,12 +75,12 @@ extension SampleViewController: MessagesDisplayDelegate {
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-        avatarView.setImage(url: messageList[indexPath.section].iconImageUrl)
+        avatarView.set(url: messageList[indexPath.section].iconImageUrl)
     }
 }
 
 // MARK: MessagesLayoutDelegate
-extension SampleViewController: MessagesLayoutDelegate {
+extension MessageViewController: MessagesLayoutDelegate {
     func headerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
         return CGSize.zero
     }
@@ -91,8 +95,9 @@ extension SampleViewController: MessagesLayoutDelegate {
 }
 
 // MARK: InputBarAccessoryViewDelegate
-extension SampleViewController: InputBarAccessoryViewDelegate {
+extension MessageViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        //
         messageList.append(MessageEntity.new(my: text))
         messageInputBar.inputTextView.text = String()
     }

@@ -68,11 +68,11 @@ struct MessageEntity: MessageType{
     static var otherIconImageUrl: URL = URL(string: "xxx")!
     
     static var mockMessages: [MessageEntity]{
-        return [MessageEntity.new(other:"黒は英語で？",data: Date().oneMonthBefore.oneMonthBefore.yesterday),
-                MessageEntity.new(my:"Black!",date:Date().oneMonthBefore.oneMonthBefore, isMarkAsRead: true)
-                MessageEntity.new(other:"白は英語で？",data: Date().oneMonthBefore.beginningOfTheMonth.yesterday),
-                MessageEntity.new(my:"White!",date:Date().oneMonthBefore.beginningOfTheMonth, isMarkAsRead:true)
-                MessageEntity.new(other:"赤は英語で？",data: Date().oneMonthBefore.yesterday),
+        return [MessageEntity.new(other:"黒は英語で？",date: Date().oneMonthBefore.oneMonthBefore.yesterday),
+                MessageEntity.new(my:"Black!",date:Date().oneMonthBefore.oneMonthBefore, isMarkAsRead: true),
+                MessageEntity.new(other:"白は英語で？",date: Date().oneMonthBefore.beginningOfTheMonth.yesterday),
+                MessageEntity.new(my:"White!",date:Date().oneMonthBefore.beginningOfTheMonth, isMarkAsRead:true),
+                MessageEntity.new(other:"赤は英語で？",date: Date().oneMonthBefore.yesterday),
                 MessageEntity.new(my:"Red!",date:Date().oneMonthBefore, isMarkAsRead: true),
                 MessageEntity.new(other:"青は英語で？",date: Date().yesterday),
                 MessageEntity.new(my:"Black!",date:Date().yesterday.hourAfter(1),isMarkAsRead: true),
