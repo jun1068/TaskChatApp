@@ -34,42 +34,42 @@ extension MessageViewController: MessagesDataSource{
     }
     
     func otherSender() -> SenderType {
-            return MessageSenderType.other
-        }
-
-        func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-            return messageList.count
-        }
-
-        func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-            return messageList[indexPath.section]
-        }
-
-        func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-            return NSAttributedString(
-                string: messageList[indexPath.section].userName,
-                attributes: [.font: UIFont.systemFont(ofSize: 12.0),
-                             .foregroundColor: UIColor.systemBlue])
-        }
-
-        func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-            return NSAttributedString(
-                string: messageList[indexPath.section].bottomText,
-                attributes: [.font: UIFont.systemFont(ofSize: 12.0),
-                             .foregroundColor: UIColor.secondaryLabel])
-        }
+        return MessageSenderType.other
+    }
+    
+    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+        return messageList.count
+    }
+    
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
+        return messageList[indexPath.section]
+    }
+    
+    func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        return NSAttributedString(
+            string: messageList[indexPath.section].userName,
+            attributes: [.font: UIFont.systemFont(ofSize: 12.0),
+                         .foregroundColor: UIColor.systemBlue])
+    }
+    
+    func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        return NSAttributedString(
+            string: messageList[indexPath.section].bottomText,
+            attributes: [.font: UIFont.systemFont(ofSize: 12.0),
+                         .foregroundColor: UIColor.secondaryLabel])
+    }
 }
 
 extension SampleViewController: MessagesDisplayDelegate {
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? UIColor.systemBlue : UIColor.systemBackground
     }
-
+    
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
         let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
         return .bubbleTail(corner, .curved)
     }
-
+    
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         avatarView.setImage(url: messageList[indexPath.section].iconImageUrl)
     }
@@ -80,11 +80,11 @@ extension SampleViewController: MessagesLayoutDelegate {
     func headerViewSize(for section: Int, in messagesCollectionView: MessagesCollectionView) -> CGSize {
         return CGSize.zero
     }
-
+    
     func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 24
     }
-
+    
     func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 24
     }
@@ -94,6 +94,6 @@ extension SampleViewController: MessagesLayoutDelegate {
 extension SampleViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         messageList.append(MessageEntity.new(my: text))
-                messageInputBar.inputTextView.text = String()
-            }
-        }
+        messageInputBar.inputTextView.text = String()
+    }
+}

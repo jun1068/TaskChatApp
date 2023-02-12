@@ -32,6 +32,9 @@
 		DA87BA5F2920B578006382B9 /* ChatListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA87BA5E2920B578006382B9 /* ChatListStoryboard.storyboard */; };
 		DA87BA612920B657006382B9 /* makeRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87BA602920B657006382B9 /* makeRoomViewController.swift */; };
 		DA87BA632920BD34006382B9 /* displayGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87BA622920BD34006382B9 /* displayGroupsViewController.swift */; };
+		DA90AA142986529C00869D5E /* ChatStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA90AA132986529C00869D5E /* ChatStoryboard.storyboard */; };
+		DAB8DBFB29863852004858C0 /* MessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB8DBFA29863852004858C0 /* MessageEntity.swift */; };
+		DAB8DBFF29864CDD004858C0 /* DateExtension2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB8DBFE29864CDD004858C0 /* DateExtension2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		DA87BA5E2920B578006382B9 /* ChatListStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatListStoryboard.storyboard; sourceTree = "<group>"; };
 		DA87BA602920B657006382B9 /* makeRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeRoomViewController.swift; sourceTree = "<group>"; };
 		DA87BA622920BD34006382B9 /* displayGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = displayGroupsViewController.swift; sourceTree = "<group>"; };
+		DA90AA132986529C00869D5E /* ChatStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatStoryboard.storyboard; sourceTree = "<group>"; };
+		DAB8DBFA29863852004858C0 /* MessageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEntity.swift; sourceTree = "<group>"; };
+		DAB8DBFE29864CDD004858C0 /* DateExtension2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +154,10 @@
 				DA412052294F2112007B4869 /* GroupsTableViewCell.swift */,
 				DA412053294F2112007B4869 /* GroupsTableViewCell.xib */,
 				DA50913F2973D48D00FB7A2B /* MessageStoryboard.storyboard */,
+				DAB8DBFA29863852004858C0 /* MessageEntity.swift */,
+				DAB8DBFE29864CDD004858C0 /* DateExtension2.swift */,
 				DA5091412973D53C00FB7A2B /* MessageViewController.swift */,
+				DA90AA132986529C00869D5E /* ChatStoryboard.storyboard */,
 			);
 			path = TaskChatApp;
 			sourceTree = "<group>";
@@ -286,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA5091402973D48D00FB7A2B /* MessageStoryboard.storyboard in Resources */,
+				DA90AA142986529C00869D5E /* ChatStoryboard.storyboard in Resources */,
 				DA87BA2629208AF3006382B9 /* LaunchScreen.storyboard in Resources */,
 				DA412055294F2112007B4869 /* GroupsTableViewCell.xib in Resources */,
 				DA87BA5F2920B578006382B9 /* ChatListStoryboard.storyboard in Resources */,
@@ -316,12 +326,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB8DBFF29864CDD004858C0 /* DateExtension2.swift in Sources */,
 				DA87BA1E29208AF2006382B9 /* ViewController.swift in Sources */,
 				DA87BA1A29208AF2006382B9 /* AppDelegate.swift in Sources */,
 				DA87BA4A29208B75006382B9 /* SignUpViewController.swift in Sources */,
 				DA87BA632920BD34006382B9 /* displayGroupsViewController.swift in Sources */,
 				DA5091422973D53C00FB7A2B /* MessageViewController.swift in Sources */,
 				DA412054294F2112007B4869 /* GroupsTableViewCell.swift in Sources */,
+				DAB8DBFB29863852004858C0 /* MessageEntity.swift in Sources */,
 				DA87BA4C29208BBC006382B9 /* LoginViewController.swift in Sources */,
 				DA87BA5B2920AA26006382B9 /* ChatViewController.swift in Sources */,
 				DA87BA1C29208AF2006382B9 /* SceneDelegate.swift in Sources */,
