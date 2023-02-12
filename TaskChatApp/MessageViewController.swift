@@ -2,9 +2,12 @@
 import UIKit
 import MessageKit
 import InputBarAccessoryView
+import Firebase
+import FirebaseFirestore
 
 final class MessageViewController: MessagesViewController {
     
+    let db = Firebase.Firestore.firestore()
     private var messageList: [MessageEntity] = [] {
         didSet{
             messagesCollectionView.reloadData()
@@ -18,6 +21,23 @@ final class MessageViewController: MessagesViewController {
             self.messageList = MessageEntity.mockMessages
             self.title = self.messageList.filter { !$0.isMe}.first?.userName
         }
+        db.collection("MessageEntity")
+            .getDocuments{querySnapshot,error in
+                guard let snapshot = querySnapshot else {return}
+                snapshot.documentChanges.forEach{ diff in
+                    let userId = diff.document.data()["userId"]as! Int
+                    let userName = diff.document.data()["userName"]as! String
+                    let iconImageUrl = diff.document.data()["iconImageUrl"]as! URL
+                    let message = diff.document.data()["message"]as! String
+                    let messageId = diff.document.data()["messageId"]as! String
+                    let sentDate = diff.document.data()["sentDate"]as! Timestamp
+                    let convertedDate: Date = sentDate.dateValue()
+                    
+//                    self.messageList.append(["userId":userId,"userName":userName,"iconImageUrl":iconImageUrl,"message":message,"messageId":messageId,"sentDate":sentDate])
+                    self.messageList.append(MessageEntity(userId: userId, userName: userName, iconImageUrl: iconImageUrl, message: message, messageId: messageId, sentDate: convertedDate))
+                    
+                }
+            }
         messagesCollectionView.backgroundColor = UIColor.secondarySystemBackground
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -26,6 +46,7 @@ final class MessageViewController: MessagesViewController {
         messageInputBar.sendButton.title = nil
         messageInputBar.sendButton.image = UIImage(systemName: "paperplane")
     }
+    
 }
 
 extension MessageViewController: MessagesDataSource{
@@ -33,9 +54,9 @@ extension MessageViewController: MessagesDataSource{
         return MessageSenderType.me
     }
     
-//    func currrentSender() -> SenderType {
-//
-//    }
+    //    func currrentSender() -> SenderType {
+    //
+    //    }
     
     func otherSender() -> SenderType {
         return MessageSenderType.other
@@ -75,7 +96,15 @@ extension MessageViewController: MessagesDisplayDelegate {
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-        avatarView.set(url: messageList[indexPath.section].iconImageUrl)
+        guard let url = messageList[indexPath.section].iconImageUrl else{return}
+        let data: Data?
+        do {
+            data = try Data(contentsOf: url )} catch{
+                print(error)
+                return
+            }
+        avatarView.set(avatar: Avatar(image: UIImage(data: data!), initials: ""))
+        //        avatarView.set(url: messageList[indexPath.section].iconImageUrl)
     }
 }
 
@@ -97,8 +126,14 @@ extension MessageViewController: MessagesLayoutDelegate {
 // MARK: InputBarAccessoryViewDelegate
 extension MessageViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        //
         messageList.append(MessageEntity.new(my: text))
+        let addDate = [
+            "userName":MessageEntity.new(my: text).userName,
+            "userId": MessageEntity.new(my: text).userId,
+            "iconImageUrl":MessageEntity.new(my: text).iconImageUrl,
+            "message":MessageEntity.new(my: text).message,
+            "messageId":MessageEntity.new(my: text).messageId,
+            "sentDate":MessageEntity.new(my: text).sentDate] as [String : Any]
         messageInputBar.inputTextView.text = String()
     }
 }

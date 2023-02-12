@@ -11,10 +11,6 @@ import Firebase
 import FirebaseFirestore
 
 class displayGroupsViewController: UIViewController {
-    
-    
-    
-    
     @IBOutlet weak var tableView:UITableView!
     
     let db = Firebase.Firestore.firestore()
@@ -28,7 +24,7 @@ class displayGroupsViewController: UIViewController {
         
         //MARK: セルの登録
         tableView.register(UINib(nibName: "GroupsTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
-        self.fetchData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,10 +36,10 @@ class displayGroupsViewController: UIViewController {
         tableView.dataSource = self
         tableView.isScrollEnabled = true
         self.fetchData()
-        
     }
     
     private func fetchData(){
+        data.removeAll()
         db.collection("groups")
             .getDocuments {querySnapshot, error in
                 guard let snapshot = querySnapshot else {return}
@@ -70,6 +66,16 @@ extension displayGroupsViewController: UITableViewDelegate,UITableViewDataSource
         //MARK: 追加する
         cell.label.text = data[indexPath.row]["roomName"]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chatboard = UIStoryboard(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "chatboard")
+        
+        //        let toChatboard = chatboard.instantiateViewController(withIdentifier: "NavigationController")
+        //
+        //        toChatboard.modalPresentationStyle = .fullScreen
+        //        self.present(toChatboard, animated: true)
+        navigationController?.pushViewController(chatboard, animated: true)
     }
 }
 
