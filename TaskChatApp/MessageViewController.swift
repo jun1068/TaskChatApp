@@ -45,13 +45,19 @@ final class MessageViewController: MessagesViewController {
                     
                     //                    self.messageList.append(["userId":userId,"userName":userName,"iconImageUrl":iconImageUrl,"message":message,"messageId":messageId,"sentDate":sentDate])
                     if userId == Auth.auth().currentUser?.uid{
-                        MessageEntity(userId = 0)
+                        let messageEntity = MessageEntity(userId: 0, userName: userName,iconImageUrl: stringToURL!,
+                                                          message:message, messageId: messageId, sentDate: convertedDate)
+                        self.messageList.append(messageEntity)
+                        self.messagesCollectionView.reloadData()
+                        
                         
                     }else {
-                        MessageEntity(userId = 1)
+                        let messageEntity = MessageEntity(userId: 1, userName: userName,iconImageUrl: stringToURL!,
+                                                          message:message, messageId: messageId, sentDate: convertedDate)
+                        self.messageList.append(messageEntity)
+                        self.messagesCollectionView.reloadData()
+                        
                     }
-                    self.messageList.append(MessageEntity(userId: userId, userName: userName, iconImageUrl: stringToURL, message: message, messageId: messageId, sentDate: convertedDate))
-                    self.messagesCollectionView.reloadData()
                     
                 }
             }
