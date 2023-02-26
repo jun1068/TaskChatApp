@@ -21,6 +21,8 @@ class LoginViewController: UIViewController {
     
     let auth = Auth.auth()
     
+    let uid = Auth.auth().currentUser?.uid
+    
     
     
     override func viewDidLoad() {

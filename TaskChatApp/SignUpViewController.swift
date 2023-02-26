@@ -11,6 +11,8 @@ import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
     
+    let uid = Auth.auth().currentUser?.uid
+    
     @IBOutlet var EmailTextField: UITextField!
     @IBOutlet var UserNameTextField: UITextField!
     @IBOutlet var PassWordTextField:UITextField!

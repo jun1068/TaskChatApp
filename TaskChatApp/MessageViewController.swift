@@ -4,10 +4,13 @@ import MessageKit
 import InputBarAccessoryView
 import Firebase
 import FirebaseFirestore
+import FirebaseAuth
 
 final class MessageViewController: MessagesViewController {
     
+    let uid = Auth.auth().currentUser?.uid
     let db = Firebase.Firestore.firestore()
+    var roomID:String = ""
     private var messageList: [MessageEntity] = [] {
         didSet{
             messagesCollectionView.reloadData()
@@ -21,20 +24,34 @@ final class MessageViewController: MessagesViewController {
             self.messageList = MessageEntity.mockMessages
             self.title = self.messageList.filter { !$0.isMe}.first?.userName
         }
-        db.collection("MessageEntity")
-            .getDocuments{querySnapshot,error in
+        
+        db.collection("message")
+            .whereField("roomNumber",isEqualTo: self.roomID)
+            .order(by: "sentDate", descending: false)
+            .addSnapshotListener{querySnapshot,error in
                 guard let snapshot = querySnapshot else {return}
                 snapshot.documentChanges.forEach{ diff in
-                    let userId = diff.document.data()["userId"]as! Int
+                    var userId = diff.document.data()["userId"]as! String
                     let userName = diff.document.data()["userName"]as! String
-                    let iconImageUrl = diff.document.data()["iconImageUrl"]as! URL
+                    let iconImageUrl = diff.document.data()["iconImageUrl"]as? String
                     let message = diff.document.data()["message"]as! String
                     let messageId = diff.document.data()["messageId"]as! String
                     let sentDate = diff.document.data()["sentDate"]as! Timestamp
                     let convertedDate: Date = sentDate.dateValue()
+                    var stringToURL: URL?
+                    if iconImageUrl != nil{
+                        stringToURL = URL(string: iconImageUrl!)
+                    }
                     
-//                    self.messageList.append(["userId":userId,"userName":userName,"iconImageUrl":iconImageUrl,"message":message,"messageId":messageId,"sentDate":sentDate])
-                    self.messageList.append(MessageEntity(userId: userId, userName: userName, iconImageUrl: iconImageUrl, message: message, messageId: messageId, sentDate: convertedDate))
+                    //                    self.messageList.append(["userId":userId,"userName":userName,"iconImageUrl":iconImageUrl,"message":message,"messageId":messageId,"sentDate":sentDate])
+                    if userId == Auth.auth().currentUser?.uid{
+                        MessageEntity(userId = 0)
+                        
+                    }else {
+                        MessageEntity(userId = 1)
+                    }
+                    self.messageList.append(MessageEntity(userId: userId, userName: userName, iconImageUrl: stringToURL, message: message, messageId: messageId, sentDate: convertedDate))
+                    self.messagesCollectionView.reloadData()
                     
                 }
             }
@@ -127,13 +144,25 @@ extension MessageViewController: MessagesLayoutDelegate {
 extension MessageViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         messageList.append(MessageEntity.new(my: text))
-        let addDate = [
+        let addData = [
             "userName":MessageEntity.new(my: text).userName,
-            "userId": MessageEntity.new(my: text).userId,
-            "iconImageUrl":MessageEntity.new(my: text).iconImageUrl,
+            "userId": uid,
+            "iconImageUrl":MessageEntity.new(my: text).iconImageUrl?.absoluteString,
             "message":MessageEntity.new(my: text).message,
             "messageId":MessageEntity.new(my: text).messageId,
-            "sentDate":MessageEntity.new(my: text).sentDate] as [String : Any]
+            "sentDate":MessageEntity.new(my: text).sentDate,
+            "roomNumber":roomID] as [String : Any]
+        
+        
         messageInputBar.inputTextView.text = String()
+        
+        db.collection("message")
+            .addDocument(data: addData){err in
+                
+                
+                if let error = err {
+                    print("メッセージの保存に失敗しました：\(error)")
+                }
     }
+}
 }

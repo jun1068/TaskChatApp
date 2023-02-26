@@ -9,8 +9,12 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import MessageKit
+import FirebaseAuth
 
 class displayGroupsViewController: UIViewController {
+    
+    let uid = Auth.auth().currentUser?.uid
     @IBOutlet weak var tableView:UITableView!
     
     let db = Firebase.Firestore.firestore()
@@ -69,7 +73,8 @@ extension displayGroupsViewController: UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chatboard = UIStoryboard(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "chatboard")
+        let chatboard = UIStoryboard(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "chatboard") as! MessageViewController
+        chatboard.roomID = data[indexPath.row]["roomId"] ?? ""
         
         //        let toChatboard = chatboard.instantiateViewController(withIdentifier: "NavigationController")
         //
