@@ -33,28 +33,26 @@ class LoginViewController: UIViewController {
     @IBAction func tappedLoginButton(_sender:Any){
         signInUser(emailText:EmailTextField.text!,passwordText:PassWordTextField.text!)
     }
-//    func signInUser(emailText:String,passwordText:String){
-//        auth.signIn(withEmail:emailText,password:passwordText){AuthDataResult,Error in
-//            if let err = Error{
-//                print("error:\(err)")
-//
-//            }
-//            self.transition()
-//        }
+    //    func signInUser(emailText:String,passwordText:String){
+    //        auth.signIn(withEmail:emailText,password:passwordText){AuthDataResult,Error in
+    //            if let err = Error{
+    //                print("error:\(err)")
+    //
+    //            }
+    //            self.transition()
+    //        }
     func signInUser(emailText:String,passwordText:String){
-            //FIXME: modify screen transition pattern.
-            auth.signIn(withEmail:emailText,password:passwordText){AuthDataResult,Error in
-                if let err = Error{
-                    print("error:\(err)")
-                    
-                }else{
-                    self.transition()
-                }
+        //FIXME: modify screen transition pattern.
+        auth.signIn(withEmail:emailText,password:passwordText){AuthDataResult,Error in
+            if let err = Error{
+                print("error:\(err)")
+                
+            }else{
+                self.transition()
             }
         }
-        
-        
     }
+    
     func transition(){
         let chatboard = UIStoryboard(name:"ChatListStoryboard", bundle: nil)
         
@@ -63,4 +61,6 @@ class LoginViewController: UIViewController {
         self.present(toDisplayGroups, animated: true)
     }
 }
+
+
 

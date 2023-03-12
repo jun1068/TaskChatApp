@@ -11,6 +11,7 @@ final class MessageViewController: MessagesViewController {
     let uid = Auth.auth().currentUser?.uid
     let db = Firebase.Firestore.firestore()
     var roomID:String = ""
+    var userName:String = ""
     private var messageList: [MessageEntity] = [] {
         didSet{
             messagesCollectionView.reloadData()
@@ -28,7 +29,7 @@ final class MessageViewController: MessagesViewController {
         
         db.collection("message")
             .whereField("roomNumber",isEqualTo: self.roomID)
-            //FIXME: delete orderBy
+        //FIXME: delete orderBy
             .addSnapshotListener{querySnapshot,error in
                 guard let snapshot = querySnapshot else {return}
                 snapshot.documentChanges.forEach{ diff in
@@ -57,15 +58,14 @@ final class MessageViewController: MessagesViewController {
                                                           message:message, messageId: messageId, sentDate: convertedDate)
                         self.messageList.append(messageEntity)
                     }
-                                        //FIXME: sort messageList
-                                        self.messageList = self.messageList.sorted { firstEntity, secondEntity in
-                                            firstEntity.sentDate.compare(secondEntity.sentDate) == .orderedAscending
-                                        }
-                        self.messagesCollectionView.reloadData()
-                        
+                    //FIXME: sort messageList
+                    self.messageList = self.messageList.sorted { firstEntity, secondEntity in
+                        firstEntity.sentDate.compare(secondEntity.sentDate) == .orderedAscending
                     }
+                    self.messagesCollectionView.reloadData()
                     
                 }
+                
             }
         messagesCollectionView.backgroundColor = UIColor.secondarySystemBackground
         messagesCollectionView.messagesDataSource = self
@@ -74,8 +74,8 @@ final class MessageViewController: MessagesViewController {
         messageInputBar.delegate = self
         messageInputBar.sendButton.title = nil
         messageInputBar.sendButton.image = UIImage(systemName: "paperplane")
+        
     }
-    
 }
 
 extension MessageViewController: MessagesDataSource{
@@ -176,6 +176,6 @@ extension MessageViewController: InputBarAccessoryViewDelegate {
                 if let error = err {
                     print("メッセージの保存に失敗しました：\(error)")
                 }
+            }
     }
-}
 }

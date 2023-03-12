@@ -34,6 +34,10 @@
 		DA90AA142986529C00869D5E /* ChatStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA90AA132986529C00869D5E /* ChatStoryboard.storyboard */; };
 		DAB8DBFB29863852004858C0 /* MessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB8DBFA29863852004858C0 /* MessageEntity.swift */; };
 		DAB8DBFF29864CDD004858C0 /* DateExtension2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB8DBFE29864CDD004858C0 /* DateExtension2.swift */; };
+		DABCA96A29BDD613008CA21F /* TaskStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DABCA96929BDD613008CA21F /* TaskStoryboard.storyboard */; };
+		DABCA96D29BDE037008CA21F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCA96B29BDE037008CA21F /* TableViewCell.swift */; };
+		DABCA96E29BDE037008CA21F /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DABCA96C29BDE037008CA21F /* TableViewCell.xib */; };
+		DABCA97029BDE13C008CA21F /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABCA96F29BDE13C008CA21F /* TaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,10 @@
 		DA90AA132986529C00869D5E /* ChatStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatStoryboard.storyboard; sourceTree = "<group>"; };
 		DAB8DBFA29863852004858C0 /* MessageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEntity.swift; sourceTree = "<group>"; };
 		DAB8DBFE29864CDD004858C0 /* DateExtension2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension2.swift; sourceTree = "<group>"; };
+		DABCA96929BDD613008CA21F /* TaskStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskStoryboard.storyboard; sourceTree = "<group>"; };
+		DABCA96B29BDE037008CA21F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		DABCA96C29BDE037008CA21F /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		DABCA96F29BDE13C008CA21F /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,10 @@
 				DAB8DBFE29864CDD004858C0 /* DateExtension2.swift */,
 				DA5091412973D53C00FB7A2B /* MessageViewController.swift */,
 				DA90AA132986529C00869D5E /* ChatStoryboard.storyboard */,
+				DABCA96929BDD613008CA21F /* TaskStoryboard.storyboard */,
+				DABCA96B29BDE037008CA21F /* TableViewCell.swift */,
+				DABCA96C29BDE037008CA21F /* TableViewCell.xib */,
+				DABCA96F29BDE13C008CA21F /* TaskViewController.swift */,
 			);
 			path = TaskChatApp;
 			sourceTree = "<group>";
@@ -292,10 +304,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA90AA142986529C00869D5E /* ChatStoryboard.storyboard in Resources */,
+				DABCA96E29BDE037008CA21F /* TableViewCell.xib in Resources */,
 				DA87BA2629208AF3006382B9 /* LaunchScreen.storyboard in Resources */,
 				DA412055294F2112007B4869 /* GroupsTableViewCell.xib in Resources */,
 				DA87BA5F2920B578006382B9 /* ChatListStoryboard.storyboard in Resources */,
 				DA87BA5729208E77006382B9 /* GoogleService-Info.plist in Resources */,
+				DABCA96A29BDD613008CA21F /* TaskStoryboard.storyboard in Resources */,
 				DA87BA2329208AF3006382B9 /* Assets.xcassets in Resources */,
 				DA87BA2129208AF2006382B9 /* Main.storyboard in Resources */,
 			);
@@ -323,12 +337,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB8DBFF29864CDD004858C0 /* DateExtension2.swift in Sources */,
+				DABCA97029BDE13C008CA21F /* TaskViewController.swift in Sources */,
 				DA87BA1E29208AF2006382B9 /* ViewController.swift in Sources */,
 				DA87BA1A29208AF2006382B9 /* AppDelegate.swift in Sources */,
 				DA87BA4A29208B75006382B9 /* SignUpViewController.swift in Sources */,
 				DA87BA632920BD34006382B9 /* displayGroupsViewController.swift in Sources */,
 				DA5091422973D53C00FB7A2B /* MessageViewController.swift in Sources */,
 				DA412054294F2112007B4869 /* GroupsTableViewCell.swift in Sources */,
+				DABCA96D29BDE037008CA21F /* TableViewCell.swift in Sources */,
 				DAB8DBFB29863852004858C0 /* MessageEntity.swift in Sources */,
 				DA87BA4C29208BBC006382B9 /* LoginViewController.swift in Sources */,
 				DA87BA5B2920AA26006382B9 /* ChatViewController.swift in Sources */,

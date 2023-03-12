@@ -44,17 +44,14 @@ class displayGroupsViewController: UIViewController {
         self.fetchData()
     }
     private func fetchUser(){
-            guard let uid = uid else {return}
-            db.collection("users")
-                .document(uid)
-                .getDocument { querySnapshot, error in
-                    guard let data = querySnapshot?.data() else {return}
-                    self.userName = data["userName"] as! String
-                }
-        }
-
-        extension displayGroupsViewController: UITableViewDelegate,UITableViewDataSource{
-        
+        guard let uid = uid else {return}
+        db.collection("users")
+            .document(uid)
+            .getDocument { querySnapshot, error in
+                guard let data = querySnapshot?.data() else {return}
+                self.userName = data["userName"] as! String
+            }
+    }
     
     private func fetchData(){
         data.removeAll()
@@ -69,7 +66,6 @@ class displayGroupsViewController: UIViewController {
                 }
                 self.tableView.reloadData()
             }
-       
     }
 }
 
@@ -90,7 +86,6 @@ extension displayGroupsViewController: UITableViewDelegate,UITableViewDataSource
         let chatboard = UIStoryboard(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "chatboard") as! MessageViewController
         chatboard.roomID = data[indexPath.row]["roomId"] ?? ""
         chatboard.userName = self.userName
-                navigationController?.pushViewController(chatboard, animated: true)
         
         //        let toChatboard = chatboard.instantiateViewController(withIdentifier: "NavigationController")
         //
