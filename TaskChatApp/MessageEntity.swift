@@ -40,44 +40,44 @@ struct MessageEntity: MessageType{
     }
     
     //MARK: static new
-    static func new(my message: String,
-                    date: Date = Date(),
-                    isMarkAsRead: Bool = false) -> MessageEntity{
-        return MessageEntity(
-            userId: 0,
-            userName: "自分",
-            iconImageUrl: myIconImageUrl,
-            message: message,
-            messageId: UUID().uuidString,
-            sentDate: date)
-    }
-    
-    static func new(other message: String,
-                    date: Date = Date()) -> MessageEntity {
-        return MessageEntity(
-            userId: 1,
-            userName: "相手",
-            iconImageUrl: otherIconImageUrl,
-            message: message,
-            messageId: UUID().uuidString,
-            sentDate: date)
-    }
+//    static func new(my message: String,
+//                    date: Date = Date(),
+//                    isMarkAsRead: Bool = false) -> MessageEntity{
+//        return MessageEntity(
+//            userId: 0,
+//            userName: "自分",
+//            iconImageUrl: myIconImageUrl,
+//            message: message,
+//            messageId: UUID().uuidString,
+//            sentDate: date)
+//    }
+//
+//    static func new(other message: String,
+//                    date: Date = Date()) -> MessageEntity {
+//        return MessageEntity(
+//            userId: 1,
+//            userName: "相手",
+//            iconImageUrl: otherIconImageUrl,
+//            message: message,
+//            messageId: UUID().uuidString,
+//            sentDate: date)
+//    }
     
     //MARK: MockData
     static var myIconImageUrl: URL = URL(string:"xxx")!
     static var otherIconImageUrl: URL = URL(string: "xxx")!
     
-    static var mockMessages: [MessageEntity]{
-        return [MessageEntity.new(other:"黒は英語で？",date: Date().oneMonthBefore.oneMonthBefore.yesterday),
-                MessageEntity.new(my:"Black!",date:Date().oneMonthBefore.oneMonthBefore, isMarkAsRead: true),
-                MessageEntity.new(other:"白は英語で？",date: Date().oneMonthBefore.beginningOfTheMonth.yesterday),
-                MessageEntity.new(my:"White!",date:Date().oneMonthBefore.beginningOfTheMonth, isMarkAsRead:true),
-                MessageEntity.new(other:"赤は英語で？",date: Date().oneMonthBefore.yesterday),
-                MessageEntity.new(my:"Red!",date:Date().oneMonthBefore, isMarkAsRead: true),
-                MessageEntity.new(other:"青は英語で？",date: Date().yesterday),
-                MessageEntity.new(my:"Black!",date:Date().yesterday.hourAfter(1),isMarkAsRead: true),
-                MessageEntity.new(other:"黄色は英語で？",date:Date())]
-    }
+//    static var mockMessages: [MessageEntity]{
+//        return [MessageEntity.new(other:"黒は英語で？",date: Date().oneMonthBefore.oneMonthBefore.yesterday),
+//                MessageEntity.new(my:"Black!",date:Date().oneMonthBefore.oneMonthBefore, isMarkAsRead: true),
+//                MessageEntity.new(other:"白は英語で？",date: Date().oneMonthBefore.beginningOfTheMonth.yesterday),
+//                MessageEntity.new(my:"White!",date:Date().oneMonthBefore.beginningOfTheMonth, isMarkAsRead:true),
+//                MessageEntity.new(other:"赤は英語で？",date: Date().oneMonthBefore.yesterday),
+//                MessageEntity.new(my:"Red!",date:Date().oneMonthBefore, isMarkAsRead: true),
+//                MessageEntity.new(other:"青は英語で？",date: Date().yesterday),
+//                MessageEntity.new(my:"Black!",date:Date().yesterday.hourAfter(1),isMarkAsRead: true),
+//                MessageEntity.new(other:"黄色は英語で？",date:Date())]
+//    }
 }
 
 import MessageKit

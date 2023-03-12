@@ -23,12 +23,14 @@ class displayGroupsViewController: UIViewController {
     var viewWidth: CGFloat! //viewの横幅
     var viewHeight: CGFloat! //viewの縦幅
     
+    var userName:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //MARK: セルの登録
         tableView.register(UINib(nibName: "GroupsTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
-        
+        self.fetchUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +43,18 @@ class displayGroupsViewController: UIViewController {
         tableView.isScrollEnabled = true
         self.fetchData()
     }
+    private func fetchUser(){
+            guard let uid = uid else {return}
+            db.collection("users")
+                .document(uid)
+                .getDocument { querySnapshot, error in
+                    guard let data = querySnapshot?.data() else {return}
+                    self.userName = data["userName"] as! String
+                }
+        }
+
+        extension displayGroupsViewController: UITableViewDelegate,UITableViewDataSource{
+        
     
     private func fetchData(){
         data.removeAll()
@@ -75,6 +89,8 @@ extension displayGroupsViewController: UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chatboard = UIStoryboard(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "chatboard") as! MessageViewController
         chatboard.roomID = data[indexPath.row]["roomId"] ?? ""
+        chatboard.userName = self.userName
+                navigationController?.pushViewController(chatboard, animated: true)
         
         //        let toChatboard = chatboard.instantiateViewController(withIdentifier: "NavigationController")
         //

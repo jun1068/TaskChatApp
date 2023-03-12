@@ -20,14 +20,15 @@ final class MessageViewController: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.async {
-            self.messageList = MessageEntity.mockMessages
-            self.title = self.messageList.filter { !$0.isMe}.first?.userName
-        }
+        //MARK:DELETE
+        //   DispatchQueue.main.async {
+        //   self.messageList = MessageEntity.mockMessages
+        //    self.title = self.messageList.filter { !$0.isMe}.first?.userName
+        // }
         
         db.collection("message")
             .whereField("roomNumber",isEqualTo: self.roomID)
-            .order(by: "sentDate", descending: false)
+            //FIXME: delete orderBy
             .addSnapshotListener{querySnapshot,error in
                 guard let snapshot = querySnapshot else {return}
                 snapshot.documentChanges.forEach{ diff in
@@ -55,6 +56,11 @@ final class MessageViewController: MessagesViewController {
                         let messageEntity = MessageEntity(userId: 1, userName: userName,iconImageUrl: stringToURL!,
                                                           message:message, messageId: messageId, sentDate: convertedDate)
                         self.messageList.append(messageEntity)
+                    }
+                                        //FIXME: sort messageList
+                                        self.messageList = self.messageList.sorted { firstEntity, secondEntity in
+                                            firstEntity.sentDate.compare(secondEntity.sentDate) == .orderedAscending
+                                        }
                         self.messagesCollectionView.reloadData()
                         
                     }
@@ -149,14 +155,15 @@ extension MessageViewController: MessagesLayoutDelegate {
 // MARK: InputBarAccessoryViewDelegate
 extension MessageViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        messageList.append(MessageEntity.new(my: text))
+        let messageEntity = MessageEntity(userId: 0, userName: self.userName, message: text, messageId: UUID().uuidString, sentDate: Date())
+        
         let addData = [
-            "userName":MessageEntity.new(my: text).userName,
-            "userId": uid,
-            "iconImageUrl":MessageEntity.new(my: text).iconImageUrl?.absoluteString,
-            "message":MessageEntity.new(my: text).message,
-            "messageId":MessageEntity.new(my: text).messageId,
-            "sentDate":MessageEntity.new(my: text).sentDate,
+            "userName":self.userName,
+            "userId": self.uid,
+            "iconImageUrl":MessageEntity.myIconImageUrl.absoluteString,
+            "message":text,
+            "messageId":messageEntity.messageId,
+            "sentDate":Timestamp(date: Date()),
             "roomNumber":roomID] as [String : Any]
         
         
